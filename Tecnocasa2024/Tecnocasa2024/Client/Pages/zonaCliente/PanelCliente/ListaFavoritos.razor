@@ -1,0 +1,62 @@
+﻿@page "/Cliente/PanelCliente/ListaFavoritos"
+@using Tecnocasa2024.Client.Pages.zonaPortal
+@using MongoDB.Bson
+@inject IStorageService storageSvc
+@inject IAjaxServices ajaxSvc
+
+@layout MenuLayout
+
+<h3>Anuncios guardados</h3>
+@if (cuantos > 0)
+{
+    <h4>@cuantos elementos guardados</h4>
+    <div class="row">
+        @foreach (Inmueble item in datosSubject.FavoritosExpandidos)
+        {
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+                <MiniInmueble InmuebleAPintar="item"
+                              EsFavorito="true"
+                              InmuebleFavEvent="@( data => this.EliminarFavorito(data.Item1, data.Item2))">
+                </MiniInmueble>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="container text-center">
+        <img src="images/ningunAnuncio.PNG" alt="Imagen" class="img-fluid" />
+    </div>
+}
+
+
+
+
+
+@code {
+    public Cliente datosSubject = new Cliente();
+    private int cuantos;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        datosSubject = storageSvc.RecuperarDatos<Cliente>("datosCliente");
+        cuantos = datosSubject.FavoritosExpandidos.Count;
+
+    }
+    public async Task EliminarFavorito(Inmueble inmu, bool push)
+    {
+        if (push)
+        {
+            //No va a entrar aqui nunca
+            datosSubject.FavoritosExpandidos.Add(inmu);
+            this.storageSvc.AlmacenarDatos(this.datosSubject, "datosCliente");
+        } else
+        {
+            
+            datosSubject.FavoritosExpandidos.Remove(inmu);
+            this.storageSvc.AlmacenarDatos(this.datosSubject, "datosCliente");
+        }
+        StateHasChanged();
+    }
+}

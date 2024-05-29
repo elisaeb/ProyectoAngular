@@ -1,0 +1,87 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = Tecnocasa2024.Client
+build_property.RootNamespace = Tecnocasa2024.Client
+build_property.ProjectDir = C:\Users\David\Desktop\ULTIMO-28\Tecnocasa2024\Tecnocasa2024\Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\David\Desktop\ULTIMO-28\Tecnocasa2024\Tecnocasa2024\Client
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/MenuLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudUxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaCliente/PanelCliente/ListaFavoritos.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYUNsaWVudGVcUGFuZWxDbGllbnRlXExpc3RhRmF2b3JpdG9zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaCliente/PanelCliente/PerfilCliente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYUNsaWVudGVcUGFuZWxDbGllbnRlXFBlcmZpbENsaWVudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/CompraInmuebles.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxDb21wcmFJbm11ZWJsZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/DetallesInmueble.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXERldGFsbGVzSW5tdWVibGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/MiniAgente.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXE1pbmlBZ2VudGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-n7me8rnwr8
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaCliente/LoginRegistro.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYUNsaWVudGVcTG9naW5SZWdpc3Ryby5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-850nyvrqn2
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/AgentesInmueble.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXEFnZW50ZXNJbm11ZWJsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-v07ahisqna
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/FormContacto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXEZvcm1Db250YWN0by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-u6bz9mj6un
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/ImagenesInmueble.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXEltYWdlbmVzSW5tdWVibGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-30ff5yigdm
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/detallesInmueble/PropsInmueble.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxkZXRhbGxlc0lubXVlYmxlXFByb3BzSW5tdWVibGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-b10vps21t5
+
+[C:/Users/David/Desktop/ULTIMO-28/Tecnocasa2024/Tecnocasa2024/Client/Pages/zonaPortal/MiniInmueble.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcem9uYVBvcnRhbFxNaW5pSW5tdWVibGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-4deaqktzpl

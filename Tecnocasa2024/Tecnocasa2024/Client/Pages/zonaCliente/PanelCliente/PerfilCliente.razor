@@ -1,0 +1,105 @@
+﻿@page "/Cliente/Panel/InicioPanel"
+@inject IStorageService storageSvc
+@inject NavigationManager navigate
+@inject IJSRuntime jsSvc
+@inject IAjaxServices ajaxSvc
+@inject IStorageService storageSvc
+
+@layout MenuLayout
+
+
+@using Microsoft.AspNetCore.Components.Forms
+
+
+        <div class="card p-4 mb-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1><strong>Perfil del usuario</strong></h1>
+                        <h3>Revisa y actualiza los datos de tu perfil</h3>
+                        <p>Comprueba que tus <strong>datos de contacto</strong> estén actualizados, ya que nuestros agentes los utilizarán para ponerse en contacto contigo.</p>
+                    </div>
+                </div>
+                <EditForm Model="clienteLogged" OnSubmit="HandleValidSubmit">
+                    <div class="row">
+                        <div class="col">
+                            <DatosContacto clienteLogged="@clienteLogged"></DatosContacto>
+                        </div>
+                    </div>
+                </EditForm>
+
+                <div class="row">
+                    <div class="col">
+                        <CambioPass></CambioPass>
+                    </div>
+                </div>
+
+                <div class="row m-3">
+                    <div class="col">
+                        <h3>Borrar usuario</h3>
+                        <p>Puedes eliminar tu <strong>Perfil Tecnocasa</strong> en cualquier momento. Sin embargo, si cambias de opinión no podrás recuperarlo.</p>
+                        <button class="btn btn-danger" @onclick="BorrarUsuario">Borrar usuario</button>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+
+
+@code {
+    public Cliente? clienteLogged = new Cliente();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("Iniciando OnInitializedAsync");
+
+        this.clienteLogged = storageSvc.RecuperarDatos<Cliente>("datosCliente");
+
+        if (this.clienteLogged == null)
+        {
+            Console.WriteLine("Cliente no encontrado, redirigiendo a /Cliente/Login");
+            this.navigate.NavigateTo("/Cliente/Login");
+        }
+        else
+        {
+            Console.WriteLine("Cliente encontrado");
+            foreach (var item in this.clienteLogged.ListaFavoritos)
+            {
+                Console.WriteLine(item);
+            }
+            foreach (var item in this.clienteLogged.FavoritosExpandidos)
+            {
+                Console.WriteLine(item.IdInmueble);
+            }
+        }
+
+    }
+
+
+    private void BorrarUsuario()
+    {
+        // Lógica para borrar el usuario
+    }
+
+   
+
+    private async void HandleValidSubmit()
+    {
+        //ha hecho click en guardar asi que quiere actualizar sus datos
+        // await storageSvc.AlmacenarDatosNuevosClienteAsync(this.clienteLogged); //metodo asincrono por que usamos el local        
+                
+        // RESTMessage _resp = await this.ajaxSvc.ActualizarCliente(this.clienteLogged);
+        // if (_resp.Codigo == 0)
+        // {
+        //     Console.WriteLine("el cliente se actualizo correctamente en perfil");
+        // }
+
+        
+
+
+    }
+
+    private void NavigateTo(string route) {
+        navigate.NavigateTo($"/Cliente/PanelCliente/{route}");
+    }
+}

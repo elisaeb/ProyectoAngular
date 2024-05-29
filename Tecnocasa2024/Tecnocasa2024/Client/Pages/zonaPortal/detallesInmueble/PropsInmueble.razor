@@ -1,0 +1,98 @@
+﻿<div class="container">
+
+    <div class="row">
+        <div class="col-9">
+            <h1 class="title">@this.inmueble.Tipo en venta en @this.inmueble.DirecInmueble.Calle</h1>
+            <h2 class="subtitle">@this.inmueble.DirecInmueble.MunDirec.DMUN50 (@this.inmueble.DirecInmueble.ProvDirec.PRO)</h2>
+        </div>
+        <div class="col-3 d-flex flex-column">
+            <div class="d-flex flex-row justify-content-end">
+                <button class="btn btn-light btn-sm"><i class="fa-regular fa-eye-slash"></i></button>
+                <button class="btn btn-light btn-sm"><i class="fa-regular fa-heart"></i></button>
+                <button class="btn btn-light btn-sm"><i class="fa-solid fa-share-nodes"></i></button>
+            </div>
+            <div><span style="font-size: .9rem;">REF.@this.inmueble.IdInmueble</span></div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <span class="hipoteca">Pide hipoteca desde...> (ir a simulador)</span>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col"><span class="currentprice">@this.inmueble.Precio €</span></div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col d-flex flex-row justify-content-between">
+            <div class="d-flex flex-row justify-content-between">
+                <div><img class="icon" src="/images/numHabitaciones.png"> @this.inmueble.NumeroHabitaciones habit.</div>
+                <div><img class="icon" src="/images/superficie.png"> @this.inmueble.SuperficieTotal m2.</div>
+                <div><img class="icon" src="/images/numBanios.png"> @this.inmueble.NumeroBaños baños.</div>
+            </div>
+            <div><button class="btn btn-lg imprimir">imprimir pdf</button></div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2 class="subtitle"><img class="icon" src="/images/descripcion_inmueble.png"> Descripción del inmueble</h2>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            @this.inmueble.Descripcion
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2 class="subtitle"><img class="icon" src="/images/caracteristicas_inmueble.png"> Características del inmueble</h2>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">REF.:</h2></div>
+                    <div class="col-6">@this.inmueble.IdInmueble</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">Numero, Planta y Letra:</h2></div>
+                    <div class="col-6">num.@this.inmueble.DirecInmueble.Numero, @this.inmueble.DirecInmueble.Planta @this.inmueble.DirecInmueble.Letra</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">Calefaccion:</h2></div>
+                    <div class="col-6">@this.inmueble.Calefaccion</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">Ascensor:</h2></div>
+                    <div class="col-6">@this.inmueble.Ascensor</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">Aire Acondicionado:</h2></div>
+                    <div class="col-6">@this.inmueble.AireAcondicionado</div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-6"><h2 class="subtitle">Año de construccion:</h2></div>
+                    <div class="col-6">@this.inmueble.AñoConstruccion</div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public Inmueble inmueble { get; set; } = new Inmueble();
+}

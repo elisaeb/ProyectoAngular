@@ -1,0 +1,60 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager navigate
+@inject IStorageService storageSvc
+@inject IAjaxServices ajaxSvc
+
+<div class="d-flex flex-column" style="height: 100vh;">
+    <div class="d-flex flex-grow-1">
+        <div class="sidebar p-3">
+            <!-- Iconos -->
+            <div class="icon my-2" @onclick="@(() => navigate.NavigateTo("/"))">
+                <img src="images/irabuscar.PNG" alt="favorites" />
+            </div>
+            <div class="icon my-2" @onclick="@(() => NavigateTo("ListaFavoritos"))">
+                <img src="images/favorites.svg" alt="favorites" />
+            </div>
+            <div class="icon my-2" @onclick="@(() => navigate.NavigateTo("/Cliente/Panel/InicioPanel"))">
+                <img src="images/hidden.svg" alt="hidden" />
+            </div>
+            <div class="icon my-2" @onclick="@(() => NavigateTo("BusquedasGuardadas"))">
+                <img src="images/searches.svg" alt="searches" />
+            </div>
+            <div class="col">
+                <img src="images/logout1.svg" alt="searches" @onclick="Logout" />
+            </div>
+        </div>
+        <div class="content flex-grow-1 p-3">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+    public Cliente? clienteLogged = new Cliente();
+
+    private void NavigateTo(string route)
+    {
+        navigate.NavigateTo($"/Cliente/PanelCliente/{route}");
+    }
+    private async Task Logout()
+    {
+        this.clienteLogged = storageSvc.RecuperarDatos<Cliente>("datosCliente");
+        List<string> _listaFavoritos = new List<string>();
+        foreach (var item in this.clienteLogged.FavoritosExpandidos)
+        {
+            _listaFavoritos.Add(item.IdInmueble);
+        }
+        bool _resp = await this.ajaxSvc.Logout(_listaFavoritos, this.clienteLogged.IdCliente);
+        if (_resp)
+        {
+            Console.WriteLine("Logout correcto");
+            this.storageSvc.BorrarDatos("datosCliente");
+            this.navigate.NavigateTo("/");
+        }
+        else
+        {
+            Console.WriteLine("Error en el logout");
+        }
+    }
+
+}

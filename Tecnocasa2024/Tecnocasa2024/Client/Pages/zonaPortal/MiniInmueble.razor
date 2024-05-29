@@ -1,0 +1,44 @@
+﻿@inject NavigationManager navigate
+
+<div class="card mt-4 p-2" @onclick="@(()=>this.navigate.NavigateTo($"/Portal/DetallesInmueble/{this.InmuebleAPintar.IdInmueble}"))">
+    <img src="@this.InmuebleAPintar.GaleriaFotos[0]" class="card-img-top" alt="...">
+    <div class="card-body">
+        <div class="card-title d-flex flex-row justify-content-between">
+            <h5><strong>@this.InmuebleAPintar.Precio €</strong></h5>
+            <div class="d-flex flex-row justify-content-end">
+                <button class="btn bnt-sm btn-light btn-mini"><i class="fa-regular fa-eye-slash"></i></button>
+                <button class="btn bnt-sm btn-light btn-mini" @onclick:stopPropagation="true" @onclick="this.ToggleFavorito"><i class="@HeartIcon"></i></button>
+            </div>
+        </div>
+        
+        <h6 class="card-subtitle mb-2 text-body-secondary">Inmueble en venta</h6>
+        <p class="card-text">@this.InmuebleAPintar.DirecInmueble.ProvDirec.PRO - @this.InmuebleAPintar.DirecInmueble.MunDirec.DMUN50 - @this.InmuebleAPintar.DirecInmueble.Calle</p>
+        
+        <div class="card-footer bg-transparent text-body-secondary d-flex flex-row justify-content-between">
+            <div><img class="footer" src="/images/numHabitaciones.png" alt="..." /><span class="text-footer">@this.InmuebleAPintar.NumeroHabitaciones dorm.</span></div>
+            <div><img class="footer" src="/images/superficie.png" alt="..." /><span class="text-footer">@this.InmuebleAPintar.SuperficieHabitable m2</span></div>
+            <div><img class="footer" src="/images/numBanios.png" alt="..." /><span class="text-footer">@this.InmuebleAPintar.NumeroBaños baños</span></div>
+        </div>        
+        
+    </div>
+</div>
+@code {
+    [Parameter]
+    public Inmueble InmuebleAPintar { get; set; }
+
+    [Parameter]
+    public EventCallback<(Inmueble, bool)> InmuebleFavEvent { get; set; } = new EventCallback<(Inmueble, bool)>();
+
+    [Parameter]
+    public bool EsFavorito { get; set; }
+
+
+    private string HeartIcon => EsFavorito ? "fas fa-heart text-danger" : "far fa-heart";
+
+    private async Task ToggleFavorito()
+    {
+        EsFavorito = !EsFavorito;
+        await InmuebleFavEvent.InvokeAsync((InmuebleAPintar, EsFavorito));
+    }
+
+}

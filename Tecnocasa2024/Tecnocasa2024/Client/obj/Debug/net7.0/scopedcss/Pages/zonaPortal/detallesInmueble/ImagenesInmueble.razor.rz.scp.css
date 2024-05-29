@@ -1,0 +1,13 @@
+.image_count[b-30ff5yigdm] {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 88px;
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}

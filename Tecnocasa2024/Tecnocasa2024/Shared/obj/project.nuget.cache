@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "uwrQN7mfQzFBCvut1ZfuWwzy8V/NlSOT2/Yl1Kuug9rJUs0Tm6Qt6KECw+zZ0d619veS05FXGMI1wk4q1kmcSw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\David\\.nuget\\packages\\mongodb.bson\\2.24.0\\mongodb.bson.2.24.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

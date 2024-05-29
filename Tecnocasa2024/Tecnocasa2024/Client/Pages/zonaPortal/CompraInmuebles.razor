@@ -1,0 +1,273 @@
+﻿
+@page "/Portal/CompraInmuebles" 
+@using System.Text.Json.Nodes
+@using System.Text.Json
+@using MongoDB.Bson
+
+@inject NavigationManager navigate
+@inject IJSRuntime jsSvc
+@inject IAjaxServices ajaxSvc
+@inject IStorageService storageSvc
+
+
+<div class="container">
+    <!-- fila para botones de filtros por tipo, precio, ...-->
+    <div class="row"></div>
+
+    <!-- fila para mostrar mapa con pisos y cards de pisos encontrados-->
+    <div class="row">
+        <div class="col-6">
+            <div id="map" style="height: 850px; width: 100%;"></div>
+        </div>
+        <div class="col-6">
+            <div class="icon my-2" @onclick="@(() => navigate.NavigateTo("/Cliente/Panel/InicioPanel"))">
+                <img src="images/profile.svg" alt="hidden" /> @clienteLogged.Nombre
+            </div>
+            <h5>Pisos y casas en venta en ....</h5>
+            @if (this.InmueblesAPintar.Count != 0)
+            {
+                <div class="container">
+                    @for (int i = 0; i < this.InmueblesAPintar.Count; i=i+2)
+                    {
+                        <div class="d-flex flex-row justify-content-between">
+                            @foreach (Inmueble item in this.InmueblesAPintar.Skip<Inmueble>(i).Take<Inmueble>(2))
+                            {
+                                <MiniInmueble InmuebleAPintar="item"
+                                              EsFavorito="clienteLogged.FavoritosExpandidos.Any(fav => fav.IdInmueble == item.IdInmueble)"
+                                              InmuebleFavEvent="@( data => this.OperarInmu(data.Item1, data.Item2))"></MiniInmueble>
+                            }
+
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    #region ... parametros de entrada componente ...
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "cpro")]
+    public string CodigoProvincia { get; set; } = "";
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "prov")]
+    public string NombreProvincia { get; set; } = "";
+
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "cmum")]
+    public string CodigoCiudad { get; set; } = "";
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "muni")]
+    public string NombreCiudad { get; set; } = "";
+
+
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "cpos")]
+    public string CodigoPostal { get; set; } = "";
+
+    [Parameter]
+    [SupplyParameterFromQuery(Name = "barrio")]
+    public string NombreBarrio { get; set; } = "";
+    #endregion
+
+
+    public List<Inmueble> InmueblesAPintar = new List<Inmueble>();
+
+    public Cliente clienteLogged = new Cliente();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        // FALLA SI NO HAY CLIENTE LOGUEADO 
+        clienteLogged = storageSvc.RecuperarDatos<Cliente>("datosCliente");
+
+        //necesito ademas cargar viviendas q tengan esos paremetros...
+
+        RESTMessage _resp = await this.ajaxSvc.BuscarInmuebles( CodigoProvincia,
+                                                                NombreProvincia,
+                                                                CodigoCiudad, 
+                                                                NombreCiudad, 
+                                                                CodigoPostal,
+                                                                NombreBarrio);
+        if (_resp.Codigo==0)
+        {
+            //this.InmueblesAPintar = _resp.OtrosDatos as List<Inmueble>;
+            this.InmueblesAPintar = JsonSerializer.Deserialize<List<Inmueble>>(_resp.OtrosDatos);
+            
+                
+
+            //...almaceno la lista de inmuebles recien buscados en el storage del navegador usando el servicio 
+            // q implemente interface IStorageService
+            this.storageSvc.AlmacenarDatos(this.InmueblesAPintar, "inmuebles");
+        }
+    }
+
+    public void OperarInmu(Inmueble inmu, bool push)
+    {
+        if (push)
+        {
+            clienteLogged.FavoritosExpandidos.Add(inmu);
+            // clienteLogged.ListaFavoritos.Add(new ObjectId(inmu.IdInmueble));
+            this.storageSvc.AlmacenarDatos(this.clienteLogged, "datosCliente");
+        }
+        else
+        {
+            // clienteLogged.FavoritosExpandidos.ForEach(fav => { if (fav.IdInmueble == inmu.IdInmueble) clienteLogged.FavoritosExpandidos.Remove(fav); });
+            clienteLogged.FavoritosExpandidos.Remove(inmu);
+            Console.WriteLine("Eliminado de favoritos" + clienteLogged.FavoritosExpandidos.Count + clienteLogged.ListaFavoritos.Count);
+            this.storageSvc.AlmacenarDatos(this.clienteLogged, "datosCliente");
+        }
+        StateHasChanged();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        //await this.jsSvc.InvokeVoidAsync("console.log", CodigoProvincia, CodigoCiudad, CodigoPostal);
+
+        //con ese cpro,cmum,cpos...averiguar longitud y latitud para centrar el mapa de google en esa proc,ciudad,calle
+        //necesito recuperar a partir de cpro y cmum los nobmres de la provincia y ciudad...
+        //casos:
+        // - si parametro "prov" esta vacio, necesito recuperar el nombre de la provincia a partir del cpro
+        // - si parametro "muni" esta vacio, necesito recuperar el nombre del municpio a partir del cpro,cmum
+
+
+
+
+        // Provincia _prov = new Provincia { CPRO = this.CodigoProvincia };
+        // Municipio _ciudad = new Municipio { CPRO = this.CodigoProvincia, CMUM = this.CodigoCiudad };
+
+        // if (String.IsNullOrEmpty(this.NombreProvincia)) { 
+        //     _prov.PRO = await this.ajaxSvc.RecuperarProvincia(this.CodigoProvincia);
+        // } else
+        // {
+        //     _prov.PRO = this.NombreProvincia;
+        // }
+
+        // if (String.IsNullOrEmpty(this.NombreCiudad))
+        // {
+        //     _ciudad.DMUN50 = await this.ajaxSvc.RecuperarMunicipio(this.CodigoProvincia, this.CodigoCiudad);
+        // } else
+        // {
+        //     _ciudad.DMUN50 = this.NombreCiudad;
+        // }
+
+
+
+
+                           //
+                           /* ---------- necesito del servicio GEOCODING API de google ---------------------
+
+                           tipo de respuesta q da el servicio:  la respuesta results[0].geometry.location <--- objeto con props .lat y .lng
+                             https://developers.google.com/maps/documentation/javascript/geocoding?hl=es-419#GeocodingResults
+
+                           para llamar a la api de geocoding necesitas objeto Geocoder:  new google.maps.GeoCoder()
+                           invocas a su metodo .geocode( { 'address': 'nombre prov,nombre ciudad,cpos' }, funcion_callback(resultado,estado_resolucion) )
+
+                             en la funcion callback el paraemtro "resultado" encierra la resolucion del servicio de coords.para esa direccion, y tiene este
+                             formato:
+
+                         {
+                         "results": [
+                         {
+                         "address_components": [
+                           {
+                           "long_name": "28803",
+                           "short_name": "28803",
+                           "types": [
+                             "postal_code"
+                             ]
+                             },
+                             {
+                             "long_name": "Alcalá de Henares",
+                           "short_name": "Alcalá de Henares",
+                         "types": [
+                           "locality",
+                           "political"
+                           ]
+                           },
+                           {
+                           "long_name": "Madrid",
+                             "short_name": "M",
+                             "types": [
+                             "administrative_area_level_2",
+                             "political"
+                         ]
+                       },
+                       {
+                       "long_name": "Comunidad de Madrid",
+                       "short_name": "MD",
+                                     "types": [
+                                     "administrative_area_level_1",
+                                     "political"
+                                     ]
+                                     },
+                                     {
+                                     "long_name": "España",
+                                       "short_name": "ES",
+                                       "types": [
+                                       "country",
+                                       "political"
+                                       ]
+                                     }
+                                     ],
+                                     "formatted_address": "28803 Alcalá de Henares, Madrid, España",
+                                       "geometry": {
+                                       "bounds": {
+                                       "south": 40.4458929,
+                                       "west": -3.4473972,
+                                       "north": 40.47876,
+                                     "east": -3.3479509
+                                     },
+                                     "location": {
+                                       "lat": 40.46041839999999,
+                                       "lng": -3.3968535
+                                       },
+                                       "location_type": "APPROXIMATE",
+                                       "viewport": {
+                                     "south": 40.4458929,
+                       "west": -3.4473972,
+                       "north": 40.47876,
+                       "east": -3.3479509
+                       }
+                       },
+                       "place_id": "ChIJgx5l1UpIQg0R8KGLM_dAAxw",
+                        "types": [
+         "postal_code"
+         ]
+         }
+     ]
+             }
+
+
+
+         */
+
+
+
+
+        // string _address = this.CodigoPostal + " " + _ciudad.DMUN50 + ", " + _prov.PRO;
+        // string _coordenadasSTRING=await this.jsSvc.InvokeAsync<string>("googleMaps.calculoCoords", _address); //obj json: { "lat": ..., "lng": ... }
+
+        // JsonNode _coords = JsonNode.Parse(_coordenadasSTRING);
+        // Double _lat = _coords["lat"].GetValue<Double>();
+        // Double _lng = _coords["lng"].GetValue<Double>();
+
+        // if (firstRender)
+        // {
+        //     await this.jsSvc.InvokeVoidAsync("googleMaps.iniciar", _lat, _lng); //<--- pasar parametros de lat, long para centrar el mapa
+        // }
+
+        // //crear un objeto Marker y InfoWindow de google-maps para cada inmueble
+        //     await this.jsSvc.InvokeVoidAsync("googleMaps.crearMarkers", this.InmueblesAPintar);
+
+
+
+
+
+    }
+}

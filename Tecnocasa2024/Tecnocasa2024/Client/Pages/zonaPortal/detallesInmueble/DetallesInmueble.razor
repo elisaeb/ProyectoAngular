@@ -1,0 +1,64 @@
+﻿@page "/Portal/DetallesInmueble/{idinmu}"
+
+@inject IStorageService storageSvc;
+@inject IAjaxServices restSvc;
+
+@if (this.InmuAPintar != null)
+{
+    <div class="container">
+        <!-- 1º fila para imagenes del inmueble, carrusel de imagenes-->
+        <div class="row">
+            <div class="col">
+                <ImagenesInmueble GaleriaFotos="this.InmuAPintar.GaleriaFotos"></ImagenesInmueble>
+            </div>
+        </div>
+
+        <!--2º fila para props del inmueble en una col, y en la otra form.contacto y info agentes inmoviliarios-->
+        <div class="row">
+            <div class="col-8">
+                <PropsInmueble inmueble="this.InmuAPintar"></PropsInmueble>
+            </div>
+            <div class="col-4 d-flex flex-column justify-content-start">
+                <div><FormContacto InmuAPintar="@InmuAPintar" IdAgenteSeleccionado="@this.idAgenteSeleccionado"></FormContacto></div>
+                <div><AgentesInmueble InmuAPintar="@InmuAPintar" AgenteSeleccionado="HandleAgenteSelected"></AgentesInmueble></div>
+            </div>
+        </div>
+
+    </div>
+
+}
+else {
+    <p>no existe ningun inmueble con ese ID...vete de nuevo a criterios de busqueda...</p>
+}
+
+@code {
+    [Parameter]
+    public string idinmu { get; set; } 
+    [Parameter]
+    public Inmueble InmuAPintar { get; set; } = new Inmueble();
+    private string idAgenteSeleccionado = "";
+
+    private void HandleAgenteSelected(string idAgente)
+    {
+        this.idAgenteSeleccionado = idAgente;
+        Console.WriteLine("idagente" + this.idAgenteSeleccionado);
+        // StateHasChanged();
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        //1º forma, cojo el idInmueble del 3º segmento de la url y hago pet.ajax usando el servicio blazon a asp.net core
+        //para recuperar el inmueble con ese _id
+        //this.InmuAPintar = await this.restSvc.RecuperarInmueble(this.idinmu);
+
+        //2º forma, para evitar hacer esta peticion, meto la lista de inmuebles del criterio de busqueda en el storage del
+        //navegador, o en ram usando subjects, ... injecto el servicio de blazor q usa este storage para recuperar de esa 
+        //lista de inmuebles el inmueble con ese _id
+        this.InmuAPintar = this.storageSvc
+                               .RecuperarDatos<List<Inmueble>>("inmuebles")
+                               .Where((Inmueble inmu)=> inmu.IdInmueble==idinmu)
+                               .Single<Inmueble>();
+        Console.WriteLine(this.InmuAPintar.Oficina.ListaAgentes.Count);
+    }
+}

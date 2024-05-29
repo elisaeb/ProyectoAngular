@@ -1,0 +1,48 @@
+﻿.title {
+    color: #424e5b;
+    font-size: 1.6rem !important;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: #424e5b;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2;
+}
+
+span.currentprice {
+    font-size: 1.5rem;
+    background-color: #d5efd6;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+span.hipoteca {
+    color: #208989;
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button.imprimir {
+    border: 2px solid #e1e9f4;
+    border-radius: 20px;
+    color: #424e5b;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+    button.imprimir:hover {
+        box-shadow: 0 0 14px rgba(66, 79, 92, .12);
+        background-color: #f8f8f8;
+        border: 2px solid #e1e9f4;
+    }
+
+img.icon {
+    width: 16px;
+    height: 16px;
+}

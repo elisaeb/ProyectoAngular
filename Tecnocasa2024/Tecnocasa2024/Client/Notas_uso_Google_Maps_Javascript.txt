@@ -1,0 +1,100 @@
+﻿--------------------------------------------
+habilitar uso de Google Maps con javascript
+--------------------------------------------
+1º ir a la consola de google cloud y en tu proyecto habilitar la API: Maps JavaScript Api
+	en consola (panel derecho del dashboard --> APIS y servicios habilitados ---> Mapas ---> Maps Javascript Api [Habilitar])
+																							 GeoCoding API (conversion entre direcciones y coord.geograficas lat.lng)
+  (te pedira datos de pago, una tarjeta de credito valida, no hay problema no cobran lo hacen por seguridad...abajo del form
+   hay un boton de confirmar uso gratuito)
+
+2º en la consola de google cloud creamos clave api para usar desde clientes esta api de google:
+	en consola (panel derecho del dashboard --> Credenciales ---> en panel central, boton [+CREAR CREDENCIALES]
+		te sale desplegable:
+				- Clave Api: ... <============= SELECCIONAMOS ESTA OPCION...te sale la clave la copias pq es la q necesitamos
+				- ID cliente OAuth: ...			para acceder desde cliente blazor, angular, react a la api de google maps
+				- Cuenta de servicio: ...
+												configuramos la clave para restringir acceso, en opcion "Editar clave API"
+												(a la derecha de la clave aparece un boton con tres puntitos...) y config.
+
+												Establece una restricción de aplicaciones: <--- seleccionamos "Sitios Web"
+												Restricciones sitios web:
+
+													[+Add] <--- pulsas, y vas añadiendo las urls de los clientes q van
+															a tener acceso a la api:
+																para Angular:  http://localhost:4200
+																para React:	  http://localhost:3000
+																para Blazor: https://localhost:7056
+
+												Restricciones API:
+													- No Restringir clave
+													- Restringir clave <=== seleccionamos... y del desplegable seleccionamos
+																				Maps Javascript Api [Aceptar]
+																				GeoCoging Api       [Aceptar]
+
+												[GUARDAR] <--- pulsar para guardar cambios en configuracion clave
+-----------------------------------
+uso de google maps con javascript
+-----------------------------------
+https://developers.google.com/maps/documentation/javascript/load-maps-js-api#javascript
+
+1º en el index.html necesitamos importar la libreria javascript q nos permite usar objetos api de google-maps mediante
+javascript:
+
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+    key: "YOUR_API_KEY", <================== AQUI METEMOS NUESTRA API-KEY GENERADA ANTES
+    v: "weekly",
+    // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+    // Add other bootstrap parameters as needed, using camel case.
+  });
+</script>
+
+2º en vista donde quieres incrustar el mapa, meter un div con id="map", en nuestro caso en vista componente ComprarInmueble.razor
+ ponerle como atributos de estilo de forma obligada un height y width:
+    <div id="map" style="height: 850px; width: 100%;"></div>
+
+nos creamos un dir. en wwwroot ---> js, nos creamos un fichero .js donde metemos codigo javascript para invocar desde comp.blazor
+para hacer uso de api javascript de google, p.e para inicializar el mapa:
+
+ en la doc. de google nos pone ejecutar:
+
+			let map;
+
+			async function initMap() {
+				const { Map } = await google.maps.importLibrary("maps");
+
+				map = new Map(document.getElementById("map"), {
+				center: { lat: -34.397, lng: 150.644 },
+				zoom: 8,
+				});
+			}
+
+			initMap();
+
+
+
+en mi fich.js me creo un metodo:
+
+  window.nombre_objeto={
+		...
+		initialize: async function(latitud,longitud){
+				const { Map } = await google.maps.importLibrary("maps");
+
+				map = new Map(document.getElementById("map"), {
+				center: { lat: latitud || , lng: longitud ||  },
+				zoom: 8,
+				});
+		
+		}
+
+importamos .js en el index.html:  <script src="js/nombre_fichero.js"></script>
+
+3º invocamos a ese metodo en el comp.blazor donde esta el div con id="map", en nuestro caso en el ComprarInmuebles.razor:
+(hacerlo en metodo del componente OnAfterRenderAsync, asi te aseguras q ese div este ya cargado en el navegador antes q el
+la resolucion del mapa se lleve a cabo):
+	
+	@inject IJsRunTime jsSvc
+	...
+	protected override async Task OnAfterRenderAsync(...){
+		await this.jsSvc.invokeVoidAsync("nombre_objeto.initialize")
+	}

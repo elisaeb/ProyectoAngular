@@ -1,0 +1,216 @@
+﻿@page "/"
+
+@inject IAjaxServices ajaxSvc
+@inject IJSRuntime jsSvc
+@inject NavigationManager navigate
+@inject IStorageService genericStorage
+
+<div class="principal d-flex flex-column">
+
+    <!-- navbar-->
+    <div class="d-flex justify-content-between">
+        <a href="#"><img src="/images/tecnocasa-es.svg" height="40" width="154" alt="tecnocasa"></a>
+
+        <nav class="navbar navbar-expand-lg  es-transparente">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#"><i class="fa-brands fa-blogger"></i> Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-house-flag"></i> Vender casa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-house-circle-check"></i> Comprar casa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"> <i class="fa-solid fa-house-lock"></i> Hipotecas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="fa-solid fa-building-user"></i> Buscar agencia inmoviliaria</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (this.clienteLogged != null)
+                            {
+                                <a class="nav-link" @onclick="@(() => navigate.NavigateTo("/Cliente/PanelCliente/Perfil"))"><i class="fa-regular fa-user"></i> @this.clienteLogged.Nombre</a>
+                            }
+                            else
+                            {
+                                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modalLogin"><i class="fa-regular fa-user"></i> Login</a>
+                            }
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- modal login-registro-->
+    <LoginRegistro></LoginRegistro>
+
+    <!-- busqueda -->
+    <div class="mt-4 busqueda d-flex flex-column  align-items-center justify-content-center">
+        <div class="mb-2"> <h1>Estrena <strong>tu nuevo hogar</strong></h1> </div>
+        <div>
+            <p> Se encuentra entre los mas de XXXX en venta o alquiler</p>
+            <p> en las inmoviliarias de Tecnocasa</p>
+        </div>
+        <div class="mt-2">
+            <ul class="nav nav-underline justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">COMPRAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ALQUILAR</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">VENDER</a>
+                </li>
+            </ul>
+        </div>
+        <div class="input-group m-3" style="width: 690px; height: 40px;">
+            <input type="text" 
+                   class="form-control" placeholder="Ciudad, provincia, distrito, barrio o referencia" 
+                   aria-describedby="button-addon2"
+                   @oninput="this.CambioEnCajaBusqueda"
+              >
+            <button class="btn btn-light" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+        <!-- resultado de la busqueda en listas...solo mostrar si recibo resultados desde el servicio, sino nada...--!>
+            @if (!this.buscando)
+            {
+                @if (this.resultadosBusqueda.ciudades.Count !=0 ||
+                     this.resultadosBusqueda.provincias.Count != 0 || 
+                     this.resultadosBusqueda.barrios.Count != 0)
+                {
+                    <ul class="geo-results">
+                    @if (this.resultadosBusqueda.provincias.Count != 0)
+                    {
+                            <ul class="geo-section">
+                                    <li class="geo-title"><img class="geo-results" src="/images/provinciass.svg">PROVINCIAS</li>
+                                    @foreach (Provincia prov in this.resultadosBusqueda.provincias)
+                                    {
+                                            <li class="result" @onclick="@(()=> this.SelectItemBusqueda(prov,null,null))">@prov.PRO</li>
+                                    }
+                            </ul>
+                    }
+
+                    @if (this.resultadosBusqueda.ciudades.Count != 0)
+                    {
+                            <ul class="geo-section">
+                                    <li class="geo-title"><img class="geo-results" src="/images/ciudades.svg">CIUDADES</li>
+                                    @foreach (Municipio muni in this.resultadosBusqueda.ciudades)
+                                    {
+                                            <li class="result" @onclick="@(()=> this.SelectItemBusqueda(null,muni,null))">@muni.DMUN50</li>
+                                    }
+                            </ul>
+
+                    }
+
+                    @if (this.resultadosBusqueda.barrios.Count != 0)
+                    {
+                            <ul class="geo-section">
+                                    <li class="geo-title"><img class="geo-results" src="/images/barrios.svg">BARRIOS</li>
+                                    @foreach (Barrio barrio in this.resultadosBusqueda.barrios)
+                                    {
+                                            <li class="result" @onclick="@(()=> this.SelectItemBusqueda(null,null,barrio))">@barrio.NVIAC</li>
+                                    }
+                            </ul>
+                    }
+                </ul>
+
+            } else 
+            {
+                    @if (!String.IsNullOrEmpty(this.valorCaja))
+                    {
+                            <div class="d-flex justify-content-center">
+                                <strong>Sin Resultados...</strong>
+                            </div>
+                    }
+            }
+        }
+        else
+        {
+            <div class="d-flex justify-content-center">
+                <div class="spinner-border" aria-hidden="true"></div>
+                <strong role="status">Buscando...</strong>
+            </div>
+        }
+
+    </div>
+
+    
+
+</div>
+@code{
+    public Cliente clienteLogged = new Cliente();
+
+    public String valorCaja { get; set; } = "";
+    public Boolean buscando { get; set; } = false;
+    public ResultadoBusquedasGEOAPI resultadosBusqueda { get; set; } = new ResultadoBusquedasGEOAPI();
+
+    private Timer debouncerTimer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        this.clienteLogged = this.genericStorage.RecuperarDatos<Cliente>("datosCliente");
+    }
+
+    public async Task CambioEnCajaBusqueda(ChangeEventArgs ev){
+
+        this.valorCaja = ev.Value as string ?? "";
+        await jsSvc.InvokeVoidAsync("console.log", "valor caja de texto buscar...", this.valorCaja);
+
+        if (this.debouncerTimer != null) this.debouncerTimer.Dispose();
+
+        this.debouncerTimer = new Timer(
+                async _ =>
+                {
+                   try
+                    {
+                        if (String.IsNullOrEmpty(this.valorCaja))
+                        {
+                            this.buscando = false;
+                            this.resultadosBusqueda = new ResultadoBusquedasGEOAPI();
+                            StateHasChanged();
+                            return;
+                        }
+                        else
+                        {
+                            this.buscando = true;
+                            StateHasChanged();
+
+                            this.resultadosBusqueda = await this.ajaxSvc.BuscarGeoApi(this.valorCaja);
+
+                        }
+
+                    } finally {
+                        this.buscando = false;
+                        StateHasChanged();
+                    }
+
+                }, null,400,Timeout.Infinite
+            );
+
+
+        }
+ 
+
+
+    public async Task SelectItemBusqueda(Provincia? pro, Municipio? mun, Barrio? bar){
+
+        await this.jsSvc.InvokeVoidAsync("console.log", pro, mun,bar);
+
+        String _params = "";
+        if ( pro != null) _params = $"cpro={pro.CPRO}&prov={pro.PRO}";
+        if ( mun != null) _params = $"cpro={mun.CPRO}&cmum={mun.CMUM}&muni={mun.DMUN50}";
+        if ( bar != null) _params = $"cpro={bar.CPRO}&cmum={bar.CMUM}&cpos={bar.CPOS}&barrio={bar.NVIAC}";
+
+        this.navigate.NavigateTo($"/Portal/CompraInmuebles?{_params}");
+    }
+}

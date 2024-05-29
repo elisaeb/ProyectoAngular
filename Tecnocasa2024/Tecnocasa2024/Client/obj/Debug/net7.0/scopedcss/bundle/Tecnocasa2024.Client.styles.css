@@ -1,0 +1,369 @@
+/* /Pages/Index.razor.rz.scp.css */
+.principal[b-n7me8rnwr8] {
+    background-image: url('/images/background_inicio.jpg');
+    height: 800px;
+}
+
+.es-transparente[b-n7me8rnwr8] {
+    background-color: transparent;
+}
+
+li.nav-item a.nav-link[b-n7me8rnwr8] {
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: Nunito, Arial, sans-serif;
+}
+
+img[b-n7me8rnwr8] {
+    width: 150;
+    height: 40px;
+}
+
+div.busqueda[b-n7me8rnwr8] {
+    font-family: Arial;
+    text-align: center;
+    color: white;
+    line-height: 0.2;
+}
+
+input[type='text'][b-n7me8rnwr8] {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 0 0 39px 0 rgba(57,68,81,.24);
+    background-color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 57px;
+}
+
+button.btn-light[b-n7me8rnwr8] {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+ul.geo-results[b-n7me8rnwr8] {
+    margin-bottom: 1rem;
+    z-index: 100;
+    background: #fff;
+    list-style: none;
+    width: calc(100vw - 30px);
+    border-radius: 20px;
+    margin-top: .5rem;
+    padding: 1rem 1rem .5rem;
+    max-height: 380px;
+    overflow: auto;
+    max-width: 690px;
+    /*max-height: 38vh;*/
+    box-shadow: 0 0 39px 0 rgba(57,68,81,.24);
+}
+
+ul.geo-section[b-n7me8rnwr8] {
+    padding-top: 5px;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    list-style-type: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    text-align: left;
+}
+
+li.geo-title[b-n7me8rnwr8] {
+    font-family: Nunito, Arial, sans-serif;
+    color: #424e5b;
+    font-weight: 700;
+    margin: .2rem;
+    text-transform: uppercase;
+    font-size: .9rem;
+    border-top: 1px solid #e2e2e2;
+    width: 100%;
+    padding-top: .5rem;
+}
+
+li.result[b-n7me8rnwr8] {
+    font-family: Nunito, Arial, sans-serif;
+    font-size: .9rem;
+    color: #424e5b;
+    padding: .3rem 0 .3rem 1.9rem;
+    cursor: pointer;
+    list-style: none;
+    border-radius: 10px;
+}
+
+    li.result:hover[b-n7me8rnwr8] {
+        background-color: hsla(0, 0%, 94.9%, .8);
+    }
+
+img.geo-results[b-n7me8rnwr8] {
+    width: .9rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+    border-style: none;
+    /* overflow-clip-margin: content-box;
+    overflow: clip; */
+}
+/* /Pages/zonaCliente/LoginRegistro.razor.rz.scp.css */
+button.btn[b-850nyvrqn2] {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+div.texto[b-850nyvrqn2] {
+    text-align: center;
+    line-height: 0.5rem;
+    font-weight: bold;
+}
+
+input.form-control[b-850nyvrqn2], input.form-control:focus[b-850nyvrqn2] {
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+label.form-label[b-850nyvrqn2] {
+    font-size: .75rem;
+    line-height: 1;
+    z-index: 3;
+}
+
+div.cajas[b-850nyvrqn2] {
+    border: 1px solid grey;
+    border-radius: .3rem;
+    background-color: rgb(232, 240, 254);
+}
+/* /Pages/zonaPortal/detallesInmueble/AgentesInmueble.razor.rz.scp.css */
+.title[b-v07ahisqna] {
+    color: #424e5b;
+    font-size: 1.6rem !important;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subtitle[b-v07ahisqna] {
+    color: #424e5b;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2;
+}
+
+button.btn-telefono[b-v07ahisqna] {
+    background: #fff;
+    border: 2px solid #424e5b;
+    box-shadow: none !important;
+    padding: .5rem 2rem !important;
+    margin-top: 1rem;
+    color: #424e5b;
+    text-transform: none !important;
+    font-size: .7rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 30px;
+}
+
+    button.btn-telefono:hover[b-v07ahisqna] {
+        background: #158140;
+        color: #fff;
+        box-shadow: 0 0 14px rgba(66, 78, 91, .58) !important;
+        border: 2px solid #158140;
+    }
+
+button.btn-otros[b-v07ahisqna] {
+    border: 2px solid #e1e9f4;
+    color: #424e5b;
+    width: 100%;
+    text-transform: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+    border-radius: 30px;
+}
+
+
+    button.btn-otros:hover[b-v07ahisqna] {
+        box-shadow: 0 0 14px rgba(66, 79, 92, .12);
+        background-color: #f8f8f8;
+        border: 2px solid #e1e9f4;
+    }
+
+img.icon[b-v07ahisqna] {
+    width: 16px;
+    height: 16px;
+}
+/* /Pages/zonaPortal/detallesInmueble/FormContacto.razor.rz.scp.css */
+.privacy-policy[b-u6bz9mj6un] {
+    font-size: .75rem;
+    margin-bottom: .5rem;
+    color: #424e5b;
+    line-height: 0.5rem;
+}
+
+button.enviar[b-u6bz9mj6un] {
+    background: #158140;
+    border: 2px solid #158140;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: none !important;
+    padding: .5rem 2rem !important;
+    text-transform: none !important;
+    font-size: .7rem;
+    font-weight: 600;
+    transition: all .5s ease-in-out;
+    letter-spacing: .05rem;
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+}
+
+    button.enviar:hover[b-u6bz9mj6un] {
+        background: #fff;
+        color: #424e5b;
+        border: 2px solid #158140;
+        box-shadow: 0 0 14px rgba(66, 78, 91, .58)
+    }
+
+input.form-control[b-u6bz9mj6un], textarea.form-control[b-u6bz9mj6un] {
+    border-radius: 10px;
+    background-color: #f1f3f4;
+    height: 3rem;
+    font-size: 1rem;
+    border: 1px solid #f1f3f4;
+    transition: all .2s ease-in-out;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #495057;
+    padding: .375rem .75rem;
+}
+
+    input.form-control:focus[b-u6bz9mj6un], textarea.form-control:focus[b-u6bz9mj6un] {
+        box-shadow: 0 0 10px rgba(66, 78, 91, .2);
+        border: 1px solid #424e5b;
+        transition: all .2s ease-in-out;
+        font-weight: 600;
+        color: #495057;
+        background-color: #fff;
+        outline: 0;
+    }
+
+label.form-check-label[b-u6bz9mj6un] {
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 32px;
+    cursor: pointer;
+    color: #424e5b;
+}
+/* /Pages/zonaPortal/detallesInmueble/ImagenesInmueble.razor.rz.scp.css */
+.image_count[b-30ff5yigdm] {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    right: 0;
+    left: 0;
+    margin: auto;
+    bottom: 88px;
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+/* /Pages/zonaPortal/detallesInmueble/PropsInmueble.razor.rz.scp.css */
+.title[b-b10vps21t5] {
+    color: #424e5b;
+    font-size: 1.6rem !important;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subtitle[b-b10vps21t5] {
+    color: #424e5b;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2;
+}
+
+span.currentprice[b-b10vps21t5] {
+    font-size: 1.5rem;
+    background-color: #d5efd6;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+span.hipoteca[b-b10vps21t5] {
+    color: #208989;
+    font-size: .9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button.imprimir[b-b10vps21t5] {
+    border: 2px solid #e1e9f4;
+    border-radius: 20px;
+    color: #424e5b;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+    button.imprimir:hover[b-b10vps21t5] {
+        box-shadow: 0 0 14px rgba(66, 79, 92, .12);
+        background-color: #f8f8f8;
+        border: 2px solid #e1e9f4;
+    }
+
+img.icon[b-b10vps21t5] {
+    width: 16px;
+    height: 16px;
+}
+/* /Pages/zonaPortal/MiniInmueble.razor.rz.scp.css */
+btn.mini[b-4deaqktzpl] {
+    margin-left: 10px;
+    border-style: none;
+    width: 22px;
+    height: 26px;
+
+}
+
+button.btn-mini:hover[b-4deaqktzpl] {
+    background-color: transparent;
+    border-style: none;
+    border-color: none;
+}
+
+img.footer[b-4deaqktzpl] {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+    color: #208989 !important;
+    margin: 0 .3rem 0 0;
+/*    position: relative;
+    top: -2px;
+*/}
+
+p.card-text[b-4deaqktzpl] {
+    font-size: .7rem;
+    font-family: Nunito, Arial, sans-serif;
+    color: #424e5b;
+    font-weight: 200;
+}
+
+.text-footer[b-4deaqktzpl] {
+    font-size: .8rem;
+    text-align: left;
+    color: #424e5b;
+    font-weight: 600;
+}
+
+div.card[b-4deaqktzpl] {
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, .1);
+    width: 46.77% !important;
+    margin: 1rem .6rem 2rem;
+    transition: all .2s;
+    opacity: 1;
+}

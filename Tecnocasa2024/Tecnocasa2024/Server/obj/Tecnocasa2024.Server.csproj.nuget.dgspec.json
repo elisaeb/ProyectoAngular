@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Server\\Tecnocasa2024.Server.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\Tecnocasa2024.Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\Tecnocasa2024.Client.csproj",
+        "projectName": "Tecnocasa2024.Client",
+        "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\Tecnocasa2024.Client.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj": {
+                "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.WebAssembly": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.DevServer": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.NET.ILLink.Analyzers": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.100-1.23211.1, )",
+              "autoReferenced": true
+            },
+            "Microsoft.NET.Sdk.WebAssembly.Pack": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.1, )",
+              "autoReferenced": true
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
+              "version": "[7.0.15, 7.0.15]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "browser-wasm": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Server\\Tecnocasa2024.Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Server\\Tecnocasa2024.Server.csproj",
+        "projectName": "Tecnocasa2024.Server",
+        "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Server\\Tecnocasa2024.Server.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Server\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\Tecnocasa2024.Client.csproj": {
+                "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\Tecnocasa2024.Client.csproj"
+              },
+              "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj": {
+                "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "BCrypt.Net-Core": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.67.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.AspNetCore.Components.WebAssembly.Server": {
+              "target": "Package",
+              "version": "[7.0.15, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj",
+        "projectName": "Tecnocasa2024.Shared",
+        "projectPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\Tecnocasa2024.Shared.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MongoDB.Bson": {
+              "target": "Package",
+              "version": "[2.24.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

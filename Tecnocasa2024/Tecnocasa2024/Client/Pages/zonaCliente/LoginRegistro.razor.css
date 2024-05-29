@@ -1,0 +1,31 @@
+﻿button.btn {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+div.texto {
+    text-align: center;
+    line-height: 0.5rem;
+    font-weight: bold;
+}
+
+input.form-control, input.form-control:focus {
+    border: none;
+    box-shadow: none;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+label.form-label {
+    font-size: .75rem;
+    line-height: 1;
+    z-index: 3;
+}
+
+div.cajas {
+    border: 1px solid grey;
+    border-radius: .3rem;
+    background-color: rgb(232, 240, 254);
+}

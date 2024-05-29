@@ -1,0 +1,41 @@
+﻿@inject IStorageService storageSvc;
+
+<div class="row mt-2">
+    @if (Agentes != null && Agentes.Count > 0)
+    {
+        @foreach (var agente in Agentes)
+        {
+            <div class="col-4">
+                <div class="card" @onclick="() => AgenteClick(agente.IdAgente)">
+                    <img class="card-img-top" src="@agente.Foto" alt="@agente.Nombre">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@agente.Nombre</h5>
+                        <p class="card-text text-success">@agente.Tipo</p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col">
+            <p>No hay agentes disponibles.</p>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public List<Agente> Agentes { get; set; }
+
+    [Parameter]
+    public EventCallback<string> AgenteSeleccionado { get; set; }
+
+    private async Task AgenteClick(string  idAgente)
+    {
+        
+        var agente = Agentes.FirstOrDefault(a => a.IdAgente == idAgente);
+        this.storageSvc.AlmacenarDatos(agente, "agente");
+        await AgenteSeleccionado.InvokeAsync(idAgente);
+    }
+}

@@ -1,0 +1,234 @@
+[
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.ClienteController",
+    "Method": "Login",
+    "RelativePath": "api/Cliente/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "datos",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tecnocasa2024.Shared.RESTMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.ClienteController",
+    "Method": "LoginCallbackGoogle",
+    "RelativePath": "api/Cliente/LoginCallbackGoogle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "code",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "state",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "scope",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.ClienteController",
+    "Method": "LoginGoogle",
+    "RelativePath": "api/Cliente/LoginGoogle",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.PortalController",
+    "Method": "BuscarGeoApi",
+    "RelativePath": "api/Portal/BuscarGeoApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "texto",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tecnocasa2024.Shared.ResultadoBusquedasGEOAPI",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.PortalController",
+    "Method": "BuscarInmueble",
+    "RelativePath": "api/Portal/BuscarInmueble",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idinmu",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tecnocasa2024.Shared.Inmueble",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.PortalController",
+    "Method": "BuscarInmuebles",
+    "RelativePath": "api/Portal/BuscarInmuebles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpro",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nompro",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cmum",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nommun",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cpos",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nombar",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tecnocasa2024.Shared.RESTMessage",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.PortalController",
+    "Method": "BuscarMunicipio",
+    "RelativePath": "api/Portal/BuscarMunicipio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpro",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "cmum",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Tecnocasa2024.Server.Controllers.PortalController",
+    "Method": "BuscarProvincia",
+    "RelativePath": "api/Portal/BuscarProvincia",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpro",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

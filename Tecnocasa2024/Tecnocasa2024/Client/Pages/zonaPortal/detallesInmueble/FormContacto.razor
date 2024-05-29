@@ -1,0 +1,187 @@
+﻿@inject IAjaxServices ajaxSvc
+@inject IStorageService storageSvc;
+@inject NavigationManager navigate
+
+<div class="container">
+    <div class="row">
+        <div class="col d-flex flex-row justify-content-center">
+            <span style="font-weight: 600; font-size: 1.2rem; color: #424e5b;">Contáctanos</span>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingNombre" @bind="nombre" placeholder="tu nombre aqui...">
+                <label for="floatingNombre">Nombre*</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingApellidos" @bind="apellido" placeholder="tus apellidos aqui...">
+                <label for="floatingApellidos">Apellidos*</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" @bind="email" placeholder="name@example.com">
+                <label for="floatingInput">Email*</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingTlfno" @bind="tel" placeholder="tlfno: 666 11 22 33">
+                <label for="floatingTlfno">Telefono*</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-floating">
+                <textarea class="form-control" rows="4" placeholder="deja tu mensaje aqui..." @bind="@this.mensaje" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea">Mensaje</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <span class="privacy-policy">Información sobre el procesamiento de datos personales: artículo 13 del Reglamento (UE) 2016/679 ("GDPR")</span>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Consentimiento para actividades de marketing
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn enviar" @onclick="SendEmail">Enviar</button>
+        </div>
+    </div>
+</div>
+@* --------------------------- *@
+@if (mostrarModal)
+{
+    <div class="modal show d-block" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Resultado del Envío</h5>                    
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/emailBIEN.PNG" alt="Email enviado con éxito" class="img-fluid" />
+                    <p>Email enviado con éxito. Redirigiendo... espera</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+
+
+@code {
+
+    [Parameter]
+    public Inmueble InmuaPintar { get; set; }
+    [Parameter]
+    public string IdAgenteSeleccionado { get; set; }
+
+    public List<Agente> Agentes { get; set; }
+    public Cliente datosSubject { get; set; }
+
+    // variables para lo que quiero enviar en el correo
+
+    public string mensaje = "";
+    public string nombre { get; set; }
+    public string apellido { get; set; }
+    public string email { get; set; }
+    public string tel { get; set; }
+    private bool mostrarModal = false;
+
+    protected override void OnInitialized()
+    {
+        this.storageSvc.EventAgente += Probar;
+    }
+
+    private void Probar(object sender, Agente agente)
+    {       
+
+        mensaje = "  Mensaje para el agente: " + agente.Nombre +"  "+ agente.Apellidos + "  con id:  " + agente.IdAgente +
+        "  sobre inmueble con id o ref:  " + this.InmuaPintar.IdInmueble + "  situado en direccion: " + this.InmuaPintar.DirecInmueble.Calle;
+    }
+
+    private async Task SendEmail()
+    {
+        Console.WriteLine("nombre " + this.nombre);
+        Console.WriteLine("apellido " + this.apellido);
+        Console.WriteLine("email " + this.email);
+        Console.WriteLine("tel " + this.tel);
+        bool _resp = await this.ajaxSvc.EmailFormulario(this.nombre,this.apellido,this.email,this.tel,this.mensaje);
+        if (!_resp)
+        {
+            Console.WriteLine("El envio del email ha salido mal");
+            
+        }
+        else
+        {
+            Console.WriteLine("El envio del email ha salido BIEEEEEEEEEEEEENNN");
+            mostrarModal = true;
+            await Task.Delay(3000);
+            mostrarModal = false;
+            StateHasChanged();
+            navigate.NavigateTo("/");
+        }
+       
+    }
+
+    public void Dispose()
+    {
+        this.storageSvc.EventAgente -= Probar;
+    }
+
+    //--------------------------
+    //datosSubject = storageSvc.RecuperarDatos<Cliente>("datosCliente");
+    // this.Agentes = this.InmuaPintar.Oficina.AgentesExpandidos;
+    // var agente = Agentes?.FirstOrDefault(a => a.IdAgente == IdAgenteSeleccionado);
+
+    // if (agente != null)
+    // {
+    //     string _mensajeEmail = $@"
+    //                     <p><strong>Mensaje para el agente:</strong></p>
+    //                     <p><strong>Nombre:</strong> {agente.Nombre} {agente.Apellidos}</p>
+    //                     <p><strong>Id del agente:</strong> {agente.IdAgente}</p>
+    //                     <p><strong>Sobre inmueble con id o ref:</strong> {InmuaPintar.IdInmueble}</p>
+    //                     <p><strong>Situado en dirección:</strong> {InmuaPintar.DirecInmueble.Calle}</p>
+    //                     ";
+    //agente.Email
+    // this.correoSvc.EnviarEmail("davidvivaucrania@gmail.com",
+    //                                   "Tecnocasa2024 - Contacto con agente",
+    //                                   _mensajeEmail,
+    //                                   "");
+
+    // }else
+    // {
+    //     Console.WriteLine("Agente no encontrado");
+    // }
+
+
+}

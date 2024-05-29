@@ -1,0 +1,67 @@
+﻿<div class="container">
+    <div class="row mt-4">
+        <div class="col">
+            <h2 class="subtitle">Inmueble propuesto por:</h2>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <img class="icon" src="/images/ubicacion_agencia_inmobiliaria.png" alt="ubicacion agencia"> @InmuaPintar.Oficina.DirecOficina.Calle , @InmuaPintar.Oficina.DirecOficina.CP , @InmuaPintar.Oficina.DirecOficina.MunDirec.DMUN50
+        </div>
+    </div>
+
+    <div class="ro">
+        <div class="col">
+            <img class="icon" src="/images/email_agencia_inmobiliaria.png" alt="email agencia"> @InmuaPintar.Oficina.Emails[0]
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <img class="icon" src="/images/tlfno_agencia_inmobiliaria.png" alt="tlfno agencia"> @InmuaPintar.Oficina.Telefonos[0]
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-telefono"><i class="fa-solid fa-phone-volume"></i> Telefono</button>
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col d-flex flex-row justify-content-between">
+            <button class="btn btn-otros"><img class="icon" src="/images/btn_web_agencia_inmobiliaria.png" alt="web agencia"> Web Agencia</button>
+            <button class="btn btn-otros"><img class="icon" src="/images/btn_ver_inmuebles_agencia_inmobiliaria.png" alt="ista inmuebles agencia"> Ver Inmuebles</button>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <h2 class="subtitle"><img class="icon" src="/images/equipo_agentes_agencia_inmobiliaria.png" alt="agentes inmobiliarios"> Nuestro equipo</h2>
+            <MiniAgente Agentes="@Agentes" AgenteSeleccionado="OnAgenteSelected"></MiniAgente>
+        </div>
+    </div>
+    
+</div>
+    @code {
+        [Parameter]
+        public Inmueble InmuaPintar { get; set; }
+        public List<Agente> Agentes { get; set; }
+
+        [Parameter]
+        public EventCallback<string> AgenteSeleccionado { get; set; }
+
+        protected override void OnParametersSet()
+        {
+            if (InmuaPintar != null && InmuaPintar.Oficina != null)
+            {
+                Agentes = InmuaPintar.Oficina.AgentesExpandidos;
+            }
+        }
+
+        private async Task OnAgenteSelected(string idAgente)
+        {
+            await AgenteSeleccionado.InvokeAsync(idAgente);
+        }
+    }

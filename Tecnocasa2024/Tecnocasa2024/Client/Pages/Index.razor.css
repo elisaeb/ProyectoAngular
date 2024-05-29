@@ -1,0 +1,104 @@
+﻿.principal {
+    background-image: url('/images/background_inicio.jpg');
+    height: 800px;
+}
+
+.es-transparente {
+    background-color: transparent;
+}
+
+li.nav-item a.nav-link {
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: Nunito, Arial, sans-serif;
+}
+
+img {
+    width: 150;
+    height: 40px;
+}
+
+div.busqueda {
+    font-family: Arial;
+    text-align: center;
+    color: white;
+    line-height: 0.2;
+}
+
+input[type='text'] {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    box-shadow: 0 0 39px 0 rgba(57,68,81,.24);
+    background-color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 57px;
+}
+
+button.btn-light {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+ul.geo-results {
+    margin-bottom: 1rem;
+    z-index: 100;
+    background: #fff;
+    list-style: none;
+    width: calc(100vw - 30px);
+    border-radius: 20px;
+    margin-top: .5rem;
+    padding: 1rem 1rem .5rem;
+    max-height: 380px;
+    overflow: auto;
+    max-width: 690px;
+    /*max-height: 38vh;*/
+    box-shadow: 0 0 39px 0 rgba(57,68,81,.24);
+}
+
+ul.geo-section {
+    padding-top: 5px;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    list-style-type: none;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    text-align: left;
+}
+
+li.geo-title {
+    font-family: Nunito, Arial, sans-serif;
+    color: #424e5b;
+    font-weight: 700;
+    margin: .2rem;
+    text-transform: uppercase;
+    font-size: .9rem;
+    border-top: 1px solid #e2e2e2;
+    width: 100%;
+    padding-top: .5rem;
+}
+
+li.result {
+    font-family: Nunito, Arial, sans-serif;
+    font-size: .9rem;
+    color: #424e5b;
+    padding: .3rem 0 .3rem 1.9rem;
+    cursor: pointer;
+    list-style: none;
+    border-radius: 10px;
+}
+
+    li.result:hover {
+        background-color: hsla(0, 0%, 94.9%, .8);
+    }
+
+img.geo-results {
+    width: .9rem;
+    margin-right: .5rem;
+    vertical-align: middle;
+    border-style: none;
+    /* overflow-clip-margin: content-box;
+    overflow: clip; */
+}

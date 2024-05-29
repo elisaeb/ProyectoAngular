@@ -1,0 +1,58 @@
+.title[b-v07ahisqna] {
+    color: #424e5b;
+    font-size: 1.6rem !important;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subtitle[b-v07ahisqna] {
+    color: #424e5b;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2;
+}
+
+button.btn-telefono[b-v07ahisqna] {
+    background: #fff;
+    border: 2px solid #424e5b;
+    box-shadow: none !important;
+    padding: .5rem 2rem !important;
+    margin-top: 1rem;
+    color: #424e5b;
+    text-transform: none !important;
+    font-size: .7rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 30px;
+}
+
+    button.btn-telefono:hover[b-v07ahisqna] {
+        background: #158140;
+        color: #fff;
+        box-shadow: 0 0 14px rgba(66, 78, 91, .58) !important;
+        border: 2px solid #158140;
+    }
+
+button.btn-otros[b-v07ahisqna] {
+    border: 2px solid #e1e9f4;
+    color: #424e5b;
+    width: 100%;
+    text-transform: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .8rem;
+    border-radius: 30px;
+}
+
+
+    button.btn-otros:hover[b-v07ahisqna] {
+        box-shadow: 0 0 14px rgba(66, 79, 92, .12);
+        background-color: #f8f8f8;
+        border: 2px solid #e1e9f4;
+    }
+
+img.icon[b-v07ahisqna] {
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,161 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\bin\\Debug\\net7.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\obj\\Debug\\net7.0\\compressed\\e9o9xq4met.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\obj\\Debug\\net7.0\\scopedcss\\bundle\\Tecnocasa2024.Client.styles.css",
+      "PackagePath": "staticwebassets\\Tecnocasa2024.Client.styles.css"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\background_inicio.jpg",
+      "PackagePath": "staticwebassets\\images\\background_inicio.jpg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\barrios.svg",
+      "PackagePath": "staticwebassets\\images\\barrios.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\btn_ver_inmuebles_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\btn_ver_inmuebles_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\btn_web_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\btn_web_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\busquedadGuardada.PNG",
+      "PackagePath": "staticwebassets\\images\\busquedadGuardada.PNG"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\caracteristicas_inmueble.png",
+      "PackagePath": "staticwebassets\\images\\caracteristicas_inmueble.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\ciudades.svg",
+      "PackagePath": "staticwebassets\\images\\ciudades.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\descripcion_inmueble.png",
+      "PackagePath": "staticwebassets\\images\\descripcion_inmueble.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\emailBIEN.PNG",
+      "PackagePath": "staticwebassets\\images\\emailBIEN.PNG"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\email_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\email_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\equipo_agentes_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\equipo_agentes_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\favorites.svg",
+      "PackagePath": "staticwebassets\\images\\favorites.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\hidden.svg",
+      "PackagePath": "staticwebassets\\images\\hidden.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\ico_photo.png",
+      "PackagePath": "staticwebassets\\images\\ico_photo.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\irabuscar.PNG",
+      "PackagePath": "staticwebassets\\images\\irabuscar.PNG"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\logout1.svg",
+      "PackagePath": "staticwebassets\\images\\logout1.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\ningunAnuncio.PNG",
+      "PackagePath": "staticwebassets\\images\\ningunAnuncio.PNG"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\numBanios.png",
+      "PackagePath": "staticwebassets\\images\\numBanios.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\numHabitaciones.png",
+      "PackagePath": "staticwebassets\\images\\numHabitaciones.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\profile.svg",
+      "PackagePath": "staticwebassets\\images\\profile.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\provinciass.svg",
+      "PackagePath": "staticwebassets\\images\\provinciass.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\searches.svg",
+      "PackagePath": "staticwebassets\\images\\searches.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\superficie.png",
+      "PackagePath": "staticwebassets\\images\\superficie.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\tecnocasa-es-color.svg",
+      "PackagePath": "staticwebassets\\images\\tecnocasa-es-color.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\tecnocasa-es.png",
+      "PackagePath": "staticwebassets\\images\\tecnocasa-es.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\tecnocasa-es.svg",
+      "PackagePath": "staticwebassets\\images\\tecnocasa-es.svg"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\tlfno_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\tlfno_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\images\\ubicacion_agencia_inmobiliaria.png",
+      "PackagePath": "staticwebassets\\images\\ubicacion_agencia_inmobiliaria.png"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\js\\GoogleMapsAPI.js",
+      "PackagePath": "staticwebassets\\js\\GoogleMapsAPI.js"
+    },
+    {
+      "Id": "C:\\Users\\David\\Desktop\\ULTIMO-28\\Tecnocasa2024\\Tecnocasa2024\\Client\\wwwroot\\js\\adminFormModals.js",
+      "PackagePath": "staticwebassets\\js\\adminFormModals.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.Tecnocasa2024.Client.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.Tecnocasa2024.Client.props",
+      "PackagePath": "build\\Tecnocasa2024.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.Tecnocasa2024.Client.props",
+      "PackagePath": "buildMultiTargeting\\Tecnocasa2024.Client.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.Tecnocasa2024.Client.props",
+      "PackagePath": "buildTransitive\\Tecnocasa2024.Client.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Tecnocasa2024.Server.props" />
+</Project>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tecnocasa2024.Server.props" />
+</Project>
